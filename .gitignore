@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Self gitignore Config
+.idea/
+data_init/weibo.txt
+*weiboPhoneDocker/__pycache__/*

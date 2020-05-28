@@ -20,6 +20,9 @@ class UserInfo(Item):
     person_url = Field()  # 首页链接
     labels = Field()  # 标签
     crawl_time = Field()  # 抓取时间戳
+    profile_id = Field()  # 首页containerid
+    weibo_id = Field()  # weibo-containerid
+    album_id = Field()  # 相册containerid
 
 
 class TweetItem(Item):

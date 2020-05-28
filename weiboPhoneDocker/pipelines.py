@@ -1,11 +1,29 @@
-class WeibophonedockerPipeline:
+import pymongo
+from pymongo.errors import DuplicateKeyError
+
+from .settings import MONGO_HOST, MONGO_PORT, MONGO_DB, MONGO_USER, MONGO_PSW
+
+
+class WeibophonedockerPipeline(object):
     def __init__(self):
-        self.phone_user = 1
+        client = pymongo.MongoClient(host=MONGO_HOST, port=MONGO_PORT)
+        db = client[MONGO_DB]
+
+        # 需要账号密码时开启
+        # db.authenticate(MONGO_USER, MONGO_PSW, mechanism='SCRAM-SHA-1')
+        self.Users = db["user"]
+        self.Tweets = db["tweets"]
 
     def process_item(self, item, spider):
         if spider.name == 'phone_user':
-            self.phone_user += 1
-            print(11111111111111111111111111111, self.phone_user)
-            if self.phone_user % 10 == 0:
-                print(self.phone_user)
-        print(item)
+            self.insert_item(self.Users, item)
+        elif spider.name == 'phone_tweet':
+            self.insert_item(self.Tweets, item)
+        return item
+
+    @staticmethod
+    def insert_item(collection, item):
+        try:
+            collection.insert(dict(item))
+        except DuplicateKeyError:
+            pass
