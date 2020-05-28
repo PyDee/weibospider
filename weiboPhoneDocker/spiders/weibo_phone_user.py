@@ -2,6 +2,9 @@ import time
 import json
 from scrapy_redis.spiders import RedisSpider
 from ..items import UserInfo
+import redis
+
+r = redis.Redis(host='127.0.0.1')
 
 
 class WeiboPhoneUserSpider(RedisSpider):
@@ -32,6 +35,9 @@ class WeiboPhoneUserSpider(RedisSpider):
                 user_item['profile_id'] = item.get('containerid')
             if item.get('tab_type') == 'weibo':
                 user_item['weibo_id'] = item.get('containerid')
+                tweet_url = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=6197250416&containerid={}'.format(
+                    user_item['weibo_id'])
+                r.lpush('tweet_spider:start_urls', tweet_url)
             if item.get('tab_type') == 'album':
                 user_item['album_id'] = item.get('containerid')
 
