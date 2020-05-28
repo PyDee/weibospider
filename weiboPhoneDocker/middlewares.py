@@ -120,7 +120,7 @@ def redom_proxy():
     # proxy = r_insert.srandmember("httpsproxy")
     # proxy = str(proxy, encoding="utf-8")
     # return proxy
-    url = 'http://your_ip_proxy'
+    url = proxy_url
     result = json.loads(requests.get(url).text)
     proxy_list = result.get('data')
     proxy_count = len(proxy_list)
