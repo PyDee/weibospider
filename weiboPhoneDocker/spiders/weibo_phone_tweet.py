@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 import json
-import scrapy
+from scrapy_redis.spiders import RedisSpider
 import time
 from ..items import TweetItem
 
 
-class WeiboPhoneTweetSpider(scrapy.Spider):
+class WeiboPhoneTweetSpider(RedisSpider):
     name = 'phone_tweet'
     allowed_domains = ['m.weibo.cn']
-    start_urls = ['http://m.weibo.cn/']
+    # start_urls = ['http://m.weibo.cn/']
+    redis_key = "tweet_spider:start_urls"
 
     def parse(self, response):
         result = json.loads(response.text)
