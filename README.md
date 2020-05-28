@@ -15,6 +15,6 @@ weibo.txt内容格式为：
 ## 代理的使用
 在middleware中实现了使用代理的代码
 
-推荐使用黑洞IP代理(https://www.heidongip.com/)，不是打广告，单纯是因为便宜
+推荐使用黑洞IP代理(https://www.heidongip.com/)  不是打广告，单纯是因为便宜
 
 在 settings 中修改 proxy_url 参数为你的 API 即可
