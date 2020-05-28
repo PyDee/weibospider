@@ -16,7 +16,10 @@ class WeiboPhoneTweetSpider(RedisSpider):
         tweet_list = result.get('data').get('cards')
         for item in tweet_list:
             tweet_item = TweetItem()
-            tweet_item['_id'] = item.get('mblog').get('bid')
+            try:
+                tweet_item['_id'] = item.get('mblog').get('bid')
+            except:
+                continue
             tweet_item['tool'] = item.get('mblog').get('source')
             tweet_item['created_at'] = item.get('mblog').get('created_at')
             tweet_item['crawl_time'] = int(time.time())
@@ -28,6 +31,8 @@ class WeiboPhoneTweetSpider(RedisSpider):
             tweet_item['weibo_url'] = item.get('scheme')
             tweet_item['image_url'] = []
             pics = item.get('mblog').get('pics')
-            for pic in pics:
-                tweet_item['image_url'].append(pic.get('url'))
+            if pics is not None:
+                for pic in pics:
+                    tweet_item['image_url'].append(pic.get('url'))
+
             yield tweet_item
