@@ -132,3 +132,4 @@ dmypy.json
 .idea/
 ../qmjava/weibo.txt
 *weiboPhoneDocker/__pycache__/*
+data/*

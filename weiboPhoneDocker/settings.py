@@ -92,26 +92,15 @@ SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.PriorityQueue'
 
-# MongoDb docker Config
-# MONGO_HOST = 'mongodb'
-# MONGO_PORT = 27017
-
 # mongo local config
-MONGO_HOST = "127.0.0.1"  # 主机IP
+MONGO_HOST = "mongodb"  # 主机IP
 MONGO_PORT = 27017  # 端口号
 MONGO_DB = "weibo"  # 库名
-MONGO_USER = "user_name"
-MONGO_PSW = "password"
-
-# Redis docker Config
-# REDIS_HOST = 'redis'
-# REDIS_PORT = 6379
 
 # redis local config
-REDIS_HOST = "127.0.0.1"
+REDIS_HOST = "redis"
 REDIS_PORT = 6379
-# REDIS_PARAMS = {
-#     "password": "your_password",
-# }
+# Redis URL
+REDIS_URL = 'redis://{}:{}'.format(REDIS_HOST, REDIS_PORT)
 
 proxy_url = 'http://ip.ipjldl.com/index.php/api/entry?method=proxyServer.hdtiqu_api_url&packid=0&fa=0&groupid=0&fetch_key=&time=100&qty=10&port=1&format=json&ss=5&css=&dt=0&pro=&city=&usertype=4'

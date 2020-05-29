@@ -7,6 +7,7 @@ services:
       - ./data/mongo:/data/db
     ports:
       - 27017:27017
+    container_name: weibo-mongo
 
   redis:
     image: redis
@@ -15,9 +16,10 @@ services:
       - 6379:6379
     volumes:
       - ./data/redis:/data
+    container_name: weibo-redis
 
   account:
-    image: registry.cn-hangzhou.aliyuncs.com/weibospider/account
+    image: bossen/weibospider:v20.05.29
     volumes:
       - ./weibospider:/app
     depends_on:
@@ -25,21 +27,24 @@ services:
       - redis
     stdin_open: true
     tty: true
+    container_name: weibo-account
 
   weibo-user:
-    image: registry.cn-hangzhou.aliyuncs.com/weibospider/spider
+    image: bossen/weibospider:v20.05.29
     volumes:
       - ./weibospider:/app
     depends_on:
       - mongodb
       - redis
     command: python run_spider.py user
+    container_name: weibo-user
 
   weibo-tweet:
-    image: registry.cn-hangzhou.aliyuncs.com/weibospider/spider
+    image: bossen/weibospider:v20.05.29
     volumes:
       - ./weibospider:/app
     depends_on:
       - mongodb
       - redis
     command: python run_spider.py tweet
+    container_name: weibo-tweet

@@ -4,7 +4,7 @@ import os
 
 
 def redis_init(spider_name, url):
-    r = redis.Redis(host='127.0.0.1')
+    r = redis.Redis(host='redis')
     for key in r.scan_iter(f"{spider_name}*"):
         r.delete(key)
     file_path = os.getcwd() + '\\weibo.txt'
