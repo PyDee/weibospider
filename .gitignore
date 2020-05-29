@@ -130,5 +130,5 @@ dmypy.json
 
 # Self gitignore Config
 .idea/
-data_init/weibo.txt
+../qmjava/weibo.txt
 *weiboPhoneDocker/__pycache__/*
