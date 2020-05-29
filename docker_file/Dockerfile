@@ -12,4 +12,5 @@ ENV PATH /usr/local/bin:$PATH
 
 # 将本地项目所有内容放置到虚拟容器的/code目录下
 ADD . /code
+ADD ./docker_file/requirements.txt .
 RUN pip3 install -r requirements.txt -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com
