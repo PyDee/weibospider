@@ -21,7 +21,9 @@ services:
   account:
     image: bossen/weibospider:v20.05.29
     volumes:
-      - ./weibospider:/app
+      - ./weiboPhoneDocker:/app
+      - ./weibo_script:/app
+      - ./data_init:/app
     depends_on:
       - mongodb
       - redis
@@ -32,7 +34,9 @@ services:
   weibo-user:
     image: bossen/weibospider:v20.05.29
     volumes:
-      - ./weibospider:/app
+      - ./weiboPhoneDocker:/app
+      - ./weibo_script:/app
+      - ./data_init:/app
     depends_on:
       - mongodb
       - redis
@@ -42,7 +46,9 @@ services:
   weibo-tweet:
     image: bossen/weibospider:v20.05.29
     volumes:
-      - ./weibospider:/app
+      - ./weiboPhoneDocker:/app
+      - ./weibo_script:/app
+      - ./data_init:/app
     depends_on:
       - mongodb
       - redis
