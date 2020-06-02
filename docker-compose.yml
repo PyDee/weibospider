@@ -21,9 +21,7 @@ services:
   account:
     image: bossen/weibospider:v20.06.02
     volumes:
-      - ./weiboPhoneDocker:/app/weiboPhoneDocker
-      - ./weibo_script:/app/weibo_script
-      - ./data_init:/app/data_init
+      - ./weiboPhoneDocker:/app
     depends_on:
       - mongodb
       - redis
@@ -34,23 +32,19 @@ services:
   weibo-user:
     image: bossen/weibospider:v20.06.02
     volumes:
-      - ./weiboPhoneDocker:/app/weiboPhoneDocker
-      - ./weibo_script:/app/weibo_script
-      - ./data_init:/app/data_init
+      - ./weiboPhoneDocker:/app
     depends_on:
       - mongodb
       - redis
-    command: python /app/weiboPhoneDocker/run_spider.py user
+    command: python run_spider.py user
     container_name: weibo-user
 
   weibo-tweet:
     image: bossen/weibospider:v20.06.02
     volumes:
-      - ./weiboPhoneDocker:/app/weiboPhoneDocker
-      - ./weibo_script:/app/weibo_script
-      - ./data_init:/app/data_init
+      - ./weiboPhoneDocker:/app
     depends_on:
       - mongodb
       - redis
-    command: python /app/weiboPhoneDocker/run_spider.py tweet
+    command: python run_spider.py tweet
     container_name: weibo-tweet
