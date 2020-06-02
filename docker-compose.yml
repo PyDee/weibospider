@@ -40,7 +40,7 @@ services:
     depends_on:
       - mongodb
       - redis
-    command: python run_spider.py user
+    command: python /app/weiboPhoneDocker/run_spider.py user
     container_name: weibo-user
 
   weibo-tweet:
@@ -52,5 +52,5 @@ services:
     depends_on:
       - mongodb
       - redis
-    command: python run_spider.py tweet
+    command: python /app/weiboPhoneDocker/run_spider.py tweet
     container_name: weibo-tweet
