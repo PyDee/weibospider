@@ -19,11 +19,11 @@ services:
     container_name: weibo-redis
 
   account:
-    image: bossen/weibospider:v20.05.29
+    image: bossen/weibospider:v20.06.02
     volumes:
-      - ./weiboPhoneDocker:/app
-      - ./weibo_script:/app
-      - ./data_init:/app
+      - ./weiboPhoneDocker:/app/weiboPhoneDocker
+      - ./weibo_script:/app/weibo_script
+      - ./data_init:/app/data_init
     depends_on:
       - mongodb
       - redis
@@ -32,11 +32,11 @@ services:
     container_name: weibo-account
 
   weibo-user:
-    image: bossen/weibospider:v20.05.29
+    image: bossen/weibospider:v20.06.02
     volumes:
-      - ./weiboPhoneDocker:/app
-      - ./weibo_script:/app
-      - ./data_init:/app
+      - ./weiboPhoneDocker:/app/weiboPhoneDocker
+      - ./weibo_script:/app/weibo_script
+      - ./data_init:/app/data_init
     depends_on:
       - mongodb
       - redis
@@ -44,11 +44,11 @@ services:
     container_name: weibo-user
 
   weibo-tweet:
-    image: bossen/weibospider:v20.05.29
+    image: bossen/weibospider:v20.06.02
     volumes:
-      - ./weiboPhoneDocker:/app
-      - ./weibo_script:/app
-      - ./data_init:/app
+      - ./weiboPhoneDocker:/app/weiboPhoneDocker
+      - ./weibo_script:/app/weibo_script
+      - ./data_init:/app/data_init
     depends_on:
       - mongodb
       - redis
