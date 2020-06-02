@@ -1,7 +1,7 @@
 import pymongo
 from pymongo.errors import DuplicateKeyError
 
-from .settings import MONGO_HOST, MONGO_PORT, MONGO_DB, MONGO_USER, MONGO_PSW
+from settings import MONGO_HOST, MONGO_PORT, MONGO_DB
 
 
 class WeibophonedockerPipeline(object):

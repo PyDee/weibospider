@@ -7,7 +7,7 @@ def redis_init(spider_name, url):
     r = redis.Redis(host='redis')
     for key in r.scan_iter(f"{spider_name}*"):
         r.delete(key)
-    file_path = os.getcwd() + '\\weibo.txt'
+    file_path = os.getcwd() + '/weibo.txt'
     count = 0
     with open(file_path, 'r') as file_to_read:
         while True:

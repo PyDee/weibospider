@@ -10,8 +10,8 @@ import os
 import sys
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from .spiders.weibo_phone_user import WeiboPhoneUserSpider
-from .spiders.weibo_phone_tweet import WeiboPhoneTweetSpider
+from spiders.weibo_phone_user import WeiboPhoneUserSpider
+from spiders.weibo_phone_tweet import WeiboPhoneTweetSpider
 
 if __name__ == '__main__':
     mode = sys.argv[1]

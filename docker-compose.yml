@@ -19,7 +19,7 @@ services:
     container_name: weibo-redis
 
   account:
-    image: bossen/weibospider:v20.06.02
+    image: bossen/weibospider:v20.06.02.1
     volumes:
       - ./weiboPhoneDocker:/app
     depends_on:
@@ -30,7 +30,7 @@ services:
     container_name: weibo-account
 
   weibo-user:
-    image: bossen/weibospider:v20.06.02
+    image: bossen/weibospider:v20.06.02.1
     volumes:
       - ./weiboPhoneDocker:/app
     depends_on:
@@ -40,7 +40,7 @@ services:
     container_name: weibo-user
 
   weibo-tweet:
-    image: bossen/weibospider:v20.06.02
+    image: bossen/weibospider:v20.06.02.1
     volumes:
       - ./weiboPhoneDocker:/app
     depends_on:

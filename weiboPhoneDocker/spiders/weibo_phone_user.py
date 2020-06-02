@@ -1,10 +1,10 @@
 import time
 import json
 from scrapy_redis.spiders import RedisSpider
-from ..items import UserInfo
+from items import UserInfo
 import redis
 
-r = redis.Redis(host='127.0.0.1')
+r = redis.Redis(host='redis')
 
 
 class WeiboPhoneUserSpider(RedisSpider):

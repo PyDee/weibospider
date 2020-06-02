@@ -1,7 +1,7 @@
 BOT_NAME = 'weiboPhoneDocker'
 
-SPIDER_MODULES = ['weiboPhoneDocker.spiders']
-NEWSPIDER_MODULE = 'weiboPhoneDocker.spiders'
+SPIDER_MODULES = ['spiders']
+NEWSPIDER_MODULE = 'spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'weiboPhoneDocker (+http://www.yourdomain.com)'
@@ -44,8 +44,8 @@ DOWNLOAD_DELAY = 0.01
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'weiboPhoneDocker.middlewares.ProxiesMiddleware': 100,
-    'weiboPhoneDocker.middlewares.RandomUserAgentMiddleware': 543,
+    'middlewares.ProxiesMiddleware': 100,
+    'middlewares.RandomUserAgentMiddleware': 543,
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 101,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 
@@ -60,7 +60,7 @@ RANDOM_UA_TYPE = 'random'
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'weiboPhoneDocker.pipelines.WeibophonedockerPipeline': 300,
+    'pipelines.WeibophonedockerPipeline': 300,
     'scrapy_redis.pipelines.RedisPipeline': 301
 }
 
@@ -90,7 +90,7 @@ ITEM_PIPELINES = {
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # 配置url去重
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.PriorityQueue'
+#SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.PriorityQueue'
 
 # mongo local config
 MONGO_HOST = "mongodb"  # 主机IP
@@ -104,3 +104,8 @@ REDIS_PORT = 6379
 REDIS_URL = 'redis://{}:{}'.format(REDIS_HOST, REDIS_PORT)
 
 proxy_url = 'http://ip.ipjldl.com/index.php/api/entry?method=proxyServer.hdtiqu_api_url&packid=0&fa=0&groupid=0&fetch_key=&time=100&qty=10&port=1&format=json&ss=5&css=&dt=0&pro=&city=&usertype=4'
+
+# Persist
+SCHEDULER_PERSIST = True
+
+RETRY_TIMES = 20

@@ -2,7 +2,7 @@
 import json
 from scrapy_redis.spiders import RedisSpider
 import time
-from ..items import TweetItem
+from items import TweetItem
 
 
 class WeiboPhoneTweetSpider(RedisSpider):
