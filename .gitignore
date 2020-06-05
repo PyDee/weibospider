@@ -134,3 +134,4 @@ dmypy.json
 *weiboPhoneDocker/__pycache__/*
 data/*
 weibo_script/
+*.txt
