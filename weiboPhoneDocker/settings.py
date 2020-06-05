@@ -90,7 +90,7 @@ ITEM_PIPELINES = {
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # 配置url去重
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-#SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.PriorityQueue'
+# SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.PriorityQueue'
 
 # mongo local config
 MONGO_HOST = "mongodb"  # 主机IP
