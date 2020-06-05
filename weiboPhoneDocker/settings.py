@@ -115,3 +115,6 @@ REDIS_PORT = 6379
 # }
 
 proxy_url = 'http://ip.ipjldl.com/index.php/api/entry?method=proxyServer.hdtiqu_api_url&packid=0&fa=0&groupid=0&fetch_key=&time=100&qty=10&port=1&format=json&ss=5&css=&dt=0&pro=&city=&usertype=4'
+# proxy_url = 'http://http.tiqu.alicdns.com/getip3?num=10&type=2&pro=&city=0&yys=0&port=11&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=45&mr=2&regions=&gm=4'
+DOWNLOAD_TIMEOUT = 30
+RETRY_ENABLED = False
